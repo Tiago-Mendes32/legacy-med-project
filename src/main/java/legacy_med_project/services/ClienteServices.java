@@ -6,10 +6,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import jakarta.persistence.EntityNotFoundException;
 import legacy_med_project.entities.Cliente;
-import legacy_med_project.entities.Medico;
 import legacy_med_project.entities.DTO.DadosListagemCliente;
-import legacy_med_project.entities.DTO.DadosListagemMedico;
 import legacy_med_project.entities.DTO.DadosUpdateCliente;
 import legacy_med_project.repositories.ClienteRepository;
 
@@ -27,8 +26,8 @@ public class ClienteServices {
 		return repository.findAllByAtivoTrue(pageable).map(DadosListagemCliente::new);
 	}
 
-	public Cliente atualizar(DadosUpdateCliente dados) throws Exception {
-		Cliente cliente = repository.findById(dados.id()).orElseThrow(() -> new Exception("Object not found"));
+	public Cliente atualizar(DadosUpdateCliente dados) throws EntityNotFoundException {
+		Cliente cliente = listagemPorId(dados.id());
 		cliente = atualizarInformacoes(cliente, dados);
 		return cliente;
 	}
@@ -41,13 +40,13 @@ public class ClienteServices {
 		return repository.save(cliente);
 	}
 	
-	public void desativar(Long id) throws Exception {
-		Cliente cliente = repository.findById(id).orElseThrow(() -> new Exception("Object not found"));
+	public void desativar(Long id) throws EntityNotFoundException {
+		Cliente cliente = listagemPorId(id);
 		cliente.desativar();
 	}
 	
-	public Cliente listagemPorId(Long id) throws Exception{
-		return repository.findById(id).orElseThrow(() -> new Exception("Object not found"));
+	public Cliente listagemPorId(Long id) throws EntityNotFoundException{
+		return repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Object not found"));
 	}
 
 }

@@ -5,7 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import legacy_med_project.entities.Endereco;
+import jakarta.persistence.EntityNotFoundException;
 import legacy_med_project.entities.Medico;
 import legacy_med_project.entities.DTO.DadosListagemMedico;
 import legacy_med_project.entities.DTO.DadosUpdateMedico;
@@ -26,7 +26,7 @@ public class MedicoServices {
 	}
 	
 	public Medico atualizar(DadosUpdateMedico dados) throws Exception {
-		Medico medico = repository.findById(dados.id()).orElseThrow(() -> new Exception("Object not found"));
+		Medico medico = listagemPorId(dados.id());
 		medico = atualizarInformacoes(medico, dados);
 		return medico;
 	}
@@ -40,12 +40,12 @@ public class MedicoServices {
 	}
 
 	public void desativar(Long id) throws Exception {
-		Medico medico = repository.findById(id).orElseThrow(() -> new Exception("Object not found"));
+		Medico medico = listagemPorId(id);
 		medico.desativar();
 		repository.save(medico);
 	}
 
 	public Medico listagemPorId(Long id) throws Exception{
-		return repository.findById(id).orElseThrow(() -> new Exception("Object not found"));
+		return repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Object not found"));
 	}
 }
