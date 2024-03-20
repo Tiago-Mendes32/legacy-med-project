@@ -1,7 +1,8 @@
-package legacy_med_project.entities.DTO;
+package legacy_med_project.entities.DTO.medico;
 
 import legacy_med_project.entities.Especialidade;
 import legacy_med_project.entities.Medico;
+import legacy_med_project.entities.DTO.endereco.DadosListagemEndereço;
 
 public record DadosListagemCompletaMedico(
 		Long id,

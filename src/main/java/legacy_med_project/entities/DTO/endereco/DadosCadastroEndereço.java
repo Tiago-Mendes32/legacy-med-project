@@ -1,4 +1,4 @@
-package legacy_med_project.entities.DTO;
+package legacy_med_project.entities.DTO.endereco;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import jakarta.persistence.EntityNotFoundException;
 import legacy_med_project.entities.Medico;
-import legacy_med_project.entities.DTO.DadosListagemMedico;
-import legacy_med_project.entities.DTO.DadosUpdateMedico;
+import legacy_med_project.entities.DTO.medico.DadosListagemMedico;
+import legacy_med_project.entities.DTO.medico.DadosUpdateMedico;
 import legacy_med_project.repositories.MedicoRepository;
 
 @Service

@@ -1,4 +1,4 @@
-package legacy_med_project.entities.DTO;
+package legacy_med_project.entities.DTO.medico;
 
 import legacy_med_project.entities.Especialidade;
 import legacy_med_project.entities.Medico;

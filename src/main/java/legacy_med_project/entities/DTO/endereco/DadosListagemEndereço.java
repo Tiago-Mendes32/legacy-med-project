@@ -1,4 +1,4 @@
-package legacy_med_project.entities.DTO;
+package legacy_med_project.entities.DTO.endereco;
 
 import legacy_med_project.entities.Endereco;
 

@@ -10,7 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import legacy_med_project.entities.DTO.DadosCadastroMedico;
+import legacy_med_project.entities.DTO.medico.DadosCadastroMedico;
 
 @Table(name = "medicos")
 @Entity(name = "Medico")

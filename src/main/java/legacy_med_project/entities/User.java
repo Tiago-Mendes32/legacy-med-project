@@ -1,7 +1,14 @@
 package legacy_med_project.entities;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,13 +17,14 @@ import jakarta.persistence.Table;
 
 @Table(name = "users")
 @Entity(name = "User")
-public class User {
-	
+public class User implements UserDetails{
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String login;
-	private String password;
+	@Column(name = "password")
+	private String key;
 	
 	public User() {
 	}
@@ -24,7 +32,7 @@ public class User {
 	public User(Long id, String login, String password) {
 		this.id = id;
 		this.login = login;
-		this.password = password;
+		this.key = password;
 	}
 
 	public Long getId() {
@@ -43,12 +51,12 @@ public class User {
 		this.login = login;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getKey() {
+		return key;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setKey(String password) {
+		this.key = password;
 	}
 
 	@Override
@@ -66,5 +74,44 @@ public class User {
 			return false;
 		User other = (User) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+	}
+
+	@Override
+	public String getUsername() {
+		return login;
+	}
+	
+	public String getpPassString() {
+		return key;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
+
+	@Override
+	public String getPassword() {
+		return key;
 	}
 }

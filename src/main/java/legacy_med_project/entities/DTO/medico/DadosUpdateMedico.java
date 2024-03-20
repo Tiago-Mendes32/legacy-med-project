@@ -1,6 +1,7 @@
-package legacy_med_project.entities.DTO;
+package legacy_med_project.entities.DTO.medico;
 
 import jakarta.validation.constraints.NotNull;
+import legacy_med_project.entities.DTO.endereco.DadosCadastroEndereço;
 
 public record DadosUpdateMedico(
 		@NotNull

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import jakarta.persistence.EntityNotFoundException;
 import legacy_med_project.entities.Cliente;
-import legacy_med_project.entities.DTO.DadosListagemCliente;
-import legacy_med_project.entities.DTO.DadosUpdateCliente;
+import legacy_med_project.entities.DTO.cliente.DadosListagemCliente;
+import legacy_med_project.entities.DTO.cliente.DadosUpdateCliente;
 import legacy_med_project.repositories.ClienteRepository;
 
 @Service

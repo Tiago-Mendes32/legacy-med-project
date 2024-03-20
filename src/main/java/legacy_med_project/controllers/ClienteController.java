@@ -21,10 +21,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import legacy_med_project.entities.Cliente;
-import legacy_med_project.entities.DTO.DadosCadastroCliente;
-import legacy_med_project.entities.DTO.DadosListagemCompletaCliente;
-import legacy_med_project.entities.DTO.DadosListagemCliente;
-import legacy_med_project.entities.DTO.DadosUpdateCliente;
+import legacy_med_project.entities.DTO.cliente.DadosCadastroCliente;
+import legacy_med_project.entities.DTO.cliente.DadosListagemCliente;
+import legacy_med_project.entities.DTO.cliente.DadosListagemCompletaCliente;
+import legacy_med_project.entities.DTO.cliente.DadosUpdateCliente;
 import legacy_med_project.services.ClienteServices;
 
 @RestController

@@ -1,7 +1,7 @@
 package legacy_med_project.entities;
 
 import jakarta.persistence.Embeddable;
-import legacy_med_project.entities.DTO.DadosCadastroEndereço;
+import legacy_med_project.entities.DTO.endereco.DadosCadastroEndereço;
 
 @Embeddable
 public class Endereco {

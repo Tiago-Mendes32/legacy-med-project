@@ -21,10 +21,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import legacy_med_project.entities.Medico;
-import legacy_med_project.entities.DTO.DadosCadastroMedico;
-import legacy_med_project.entities.DTO.DadosListagemCompletaMedico;
-import legacy_med_project.entities.DTO.DadosListagemMedico;
-import legacy_med_project.entities.DTO.DadosUpdateMedico;
+import legacy_med_project.entities.DTO.medico.DadosCadastroMedico;
+import legacy_med_project.entities.DTO.medico.DadosListagemCompletaMedico;
+import legacy_med_project.entities.DTO.medico.DadosListagemMedico;
+import legacy_med_project.entities.DTO.medico.DadosUpdateMedico;
 import legacy_med_project.services.MedicoServices;
 
 @RestController
