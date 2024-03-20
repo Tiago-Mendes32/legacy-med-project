@@ -1,26 +1,21 @@
-package legacy_med_project.config;
+package legacy_med_project.config.exceptions;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
-import org.springframework.validation.FieldError;
-
-public class StandardError_NotValidArguments {
-
+public class StandardError {
+	
 	private LocalDateTime timestamp;
 	private Integer status;
 	private String error;
 	private String message;
 	private String path;
-	private List<DadosErroValidacao> errors;
 	
-	public StandardError_NotValidArguments(LocalDateTime timestamp, Integer status, String error, String message, String path, List<DadosErroValidacao> errors) {
+	public StandardError(LocalDateTime timestamp, Integer status, String error, String message, String path) {
 		this.timestamp = timestamp;
 		this.status = status;
 		this.error = error;
 		this.message = message;
 		this.path = path;
-		this.errors = errors;
 	}
 
 	public LocalDateTime getTimestamp() {
@@ -61,13 +56,5 @@ public class StandardError_NotValidArguments {
 
 	public void setPath(String path) {
 		this.path = path;
-	}
-
-	public List<DadosErroValidacao> getErrors() {
-		return errors;
-	}
-
-	public void setErrors(List<DadosErroValidacao> errors) {
-		this.errors = errors;
 	}
 }

@@ -1,4 +1,4 @@
-package legacy_med_project.config;
+package legacy_med_project.config.exceptions;
 
 import java.time.LocalDateTime;
 
